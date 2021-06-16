@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<section class="row text-center">
+<section class="row">
 
 <h1>Registrate a este puto blog</h1>
 

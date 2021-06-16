@@ -24,7 +24,10 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @auth
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                        <li><a id="logout" class="dropdown-item" href="#">Logout</a></li>
+                        <form  id="logout-form" action="{{route('logout')}}" method="POST">
+                        @csrf
+                        </form>
                         @endauth
                         @guest
                         <li><a class="dropdown-item" href="{{route('login')}}">Login</a></li>
