@@ -11,7 +11,12 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    @yield('content')
+  @include('layouts._nav')
+  <div class="container">
+  @yield('content')
+  
+  </div>
+    
 
     <!-- Optional JavaScript; choose one of the two! -->
 
