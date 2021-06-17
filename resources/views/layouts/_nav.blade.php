@@ -11,7 +11,7 @@
                     <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="{{route('articles.index')}}">Articles</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -24,6 +24,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @auth
+                        <li><a class="dropdown-item" href="{{route('articles.create')}}">Create Article</a></li>
                         <li><a id="logout" class="dropdown-item" href="#">Logout</a></li>
                         <form  id="logout-form" action="{{route('logout')}}" method="POST">
                         @csrf

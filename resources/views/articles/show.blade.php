@@ -3,12 +3,12 @@
 
 <section class="row">
     <div class="col-12">
-        <h1>todos los articulos</h1>
+        <h1>{{$article->title}}</h1>
 
     </div>
 </section>
 <section class="row">
-    @foreach($articles as $article)
+   
     <div class="col-12 col-md-4">
         <div class="card">
             <img src="http://lorempixel.com/400/400/?q={{rand(1,1000000000)}}" class="card-img-top" alt="...">
@@ -19,10 +19,6 @@
             </div>
         </div>
     </div>
-    @endforeach
+   
 </section>
-
-
-
-
 @endsection
