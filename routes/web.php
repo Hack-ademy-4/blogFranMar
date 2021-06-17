@@ -17,7 +17,7 @@ use App\Http\Controllers\ArticleController;
 
  Route::get('/',[PublicController::class,'home'])->name('home');
 
-//article route
+ //article route
 
  //create
  Route::get('/articles/create',[ArticleController::class,'create'])->name('articles.create');
@@ -29,7 +29,7 @@ use App\Http\Controllers\ArticleController;
 
  //delete
  Route::get('/articles/{article}',[ArticleController::class,'destroy'])->name('articles.destroy');
- 
+
  //read
  Route::get('/articles',[ArticleController::class,'index'])->name('articles.index');
  Route::get('/articles/{article}',[ArticleController::class,'show'])->name('articles.show');
