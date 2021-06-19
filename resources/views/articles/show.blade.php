@@ -8,14 +8,15 @@
     </div>
 </section>
 <section class="row">
-   
     <div class="col-12 col-md-4">
         <div class="card">
             <img src="http://lorempixel.com/400/400/?q={{rand(1,1000000000)}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{$article->title}}</h5>
                 <p class="card-text">{{$article->content}}</p>
+                @if($article->isAuthUserAuthor())
                 <a href="{{route('articles.edit',$article)}}" class="btn btn-warning">Edit</a>
+                @endif
                 <form action="{{route('articles.edit',$article)}}" method="POST"></form>
                 @csrf
                 @method('DELETE')

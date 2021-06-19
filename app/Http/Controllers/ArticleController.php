@@ -24,20 +24,20 @@ class ArticleController extends Controller
 
     public function create()
     {
-    return view ('articles.create');
+         return view ('articles.create');
     }
 
     public function store(Request $request)
 
     {
     //validacion
-    $requestValidated = $request->validate([
-        'title'=>'required',
-        'content'=>'required'
+        $requestValidated = $request->validate([
+            'title'=>'required',
+            'content'=>'required'
     ]);
     // verificado si estoy autentificado
 
-    if (!$user = Auth::user())
+    if ($article->isAuthUserAuthor)
     return redirect()->route ('home');
     
 
@@ -48,20 +48,22 @@ class ArticleController extends Controller
     }
     //crUD
     public function edit(Article $article)
-    {
-       return view("articles.edit",compact('article')); 
+
+    {   // verificado si estoy autentificado
+
+    if ($article->isAuthUserAuthor)
+    return redirect()->route ('home');
+
+    return view("articles.edit",compact('article')); 
        
     }
+
     public function update(Request $request, Article $article)
     {
         // verificado si estoy autentificado
 
-    if (!$user = Auth::user())
-    return redirect()->route ('home');
 
-   
-
-    if ($article->user_id != $user->id)
+    if ($article->isAuthUserAuthor)
     return redirect()->route ('home');
 
      //validacion
@@ -79,11 +81,13 @@ class ArticleController extends Controller
     public function destroy (Article $article)
 
     {
-        if ($article->user_id != $user->id)
-        return redirect()->route ('home');
+        
+    if ($article->user_id != $user->id)
+    return redirect()->route ('home');
 
-        $article->delete();
-        return redirect ()->route('articles.index');
+    $article->delete();
+    return redirect ()->route('articles.index');
+
     }
 
 }
