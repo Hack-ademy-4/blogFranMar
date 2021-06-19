@@ -16,6 +16,10 @@
                 <h5 class="card-title">{{$article->title}}</h5>
                 <p class="card-text">{{$article->content}}</p>
                 <a href="{{route('articles.edit',$article)}}" class="btn btn-warning">Edit</a>
+                <form action="{{route('articles.edit',$article)}}" method="POST"></form>
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger">Delete</button>
             </div>
         </div>
     </div>

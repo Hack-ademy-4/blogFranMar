@@ -76,6 +76,16 @@ class ArticleController extends Controller
 
     }
 
+    public function destroy (Article $article)
+
+    {
+        if ($article->user_id != $user->id)
+        return redirect()->route ('home');
+
+        $article->delete();
+        return redirect ()->route('articles.index');
+    }
+
 }
 
 
