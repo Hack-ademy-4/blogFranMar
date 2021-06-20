@@ -16,6 +16,7 @@
   @yield('content')
   
   </div>
+  @include('layouts._footer')
     
 
     <!-- Optional JavaScript; choose one of the two! -->
