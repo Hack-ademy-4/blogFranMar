@@ -27,4 +27,4 @@ required('./bootstrap');
 //     forceTLS: true
 // });
 
-required('./custom');
+required('./custom.js');
