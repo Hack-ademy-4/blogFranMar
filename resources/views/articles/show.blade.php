@@ -9,6 +9,7 @@
 </section>
 <section class="row">
     <div class="col-12 col-md-4">
+        @foreach
         <div class="card">
             <img src="http://lorempixel.com/400/400/?q={{rand(1,1000000000)}}" class="card-img-top" alt="...">
             <div class="card-body">
@@ -23,6 +24,7 @@
                 <button class="btn btn-danger">Delete</button>
             </div>
         </div>
+        @endforeach
     </div>
    
 </section>

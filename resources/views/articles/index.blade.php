@@ -15,6 +15,13 @@
             <div class="card-body">
                 <h5 class="card-title">{{$article->title}}</h5>
                 <p class="card-text">{{$article->content}}</p>
+                <div>
+                    @foreach($article->tags as $tag)
+                        
+                        <a href="#"># {{$tag->name}}</a>
+                    @endforeach
+                
+                </div>
                 <a href="{{route('articles.show',$article)}}" class="btn btn-primary">Leer Mas</a>
             </div>
         </div>

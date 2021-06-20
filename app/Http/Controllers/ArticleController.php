@@ -33,16 +33,19 @@ class ArticleController extends Controller
     //validacion
         $requestValidated = $request->validate([
             'title'=>'required',
-            'content'=>'required'
+            'content'=>'required',
+            'content'=>'required',
+            'tags'=>'required'
     ]);
     // verificado si estoy autentificado
 
     if ($article->isAuthUserAuthor)
     return redirect()->route ('home');
     
-
+    $tags =[1,4];
     //guardar articulo de usuario conectado
-    $user->articles()->create($requestValidated);
+    $article = $user->articles()->create($requestValidated);
+    $article = tags()->attach($requestValidated['tags']);
     return redirect()->route('articles.index');
 
     }
