@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ArticleController;
 
@@ -33,3 +34,6 @@ use App\Http\Controllers\ArticleController;
  //read
  Route::get('/articles',[ArticleController::class,'index'])->name('articles.index');
  Route::get('/articles/{article}',[ArticleController::class,'show'])->name('articles.show');
+ 
+ //Tag routes
+ Route::resource('tags',TagController::class);
