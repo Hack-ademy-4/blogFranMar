@@ -10,4 +10,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Tag extends Model
 {
     use HasFactory;
+    public function articles()
+    {
+        return $this->belongsToMany(Article::class);
+    }
 }
+
